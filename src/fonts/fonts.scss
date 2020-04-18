@@ -1,0 +1,7 @@
+@font-face {
+  font-family: 'Gingham';
+  src: url('Gingham.woff2') format('woff2-variations'),
+  /* will be the standard and works in Safari now */
+  url('Gingham.woff2') format('woff2');
+  /* for the other supporting browsers */
+  }

@@ -1,0 +1,35 @@
+@import './fonts/fonts.scss';
+@import './styles/variables.scss';
+@import './styles/header.scss';
+@import './styles/nav.scss';
+@import './styles/main.scss';
+@import './styles/tabs.scss';
+
+
+
+html {
+  box-sizing: border-box;
+  height: 5000px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  background-color: $background-fill-color-first;
+  font-family: "Gingham";
+  font-variation-settings: "wght" 750, "wdth" 125;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  text-decoration: none;
+  cursor: pointer;
+}
