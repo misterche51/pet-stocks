@@ -15,6 +15,25 @@ class Tab extends Component {
     this.loadData()
   }
 
+  convertDate(string) {
+    const calendar = {
+      '1': 'january',
+      '2': 'february',
+      '3': 'march',
+      '4': 'april',
+      '5': 'may',
+      '6': 'june',
+      '7': 'july',
+      '8': 'august',
+      '9': 'septemer',
+      '10': 'october',
+      '11': 'november',
+      '12': 'december',
+    };
+    const date = new Date(string);
+    return `${(date.getDate())} ${(calendar[date.getMonth() + 1])} ${date.getFullYear()}`;
+  }
+
   loadData() {
     const url = 'http://newsapi.org/v2/top-headlines?' +
     'country=us&' +
@@ -52,7 +71,7 @@ class Tab extends Component {
           {(this.state.content.map((item) => {
             return (<li key = {item.url} className = "tabs__news-item">
               <p className = "tabs__news-title">{item.title}</p>
-              <p className = "tabs__news-data">{item.publishedAt}</p>
+              <p className = "tabs__news-date">{this.convertDate(item.publishedAt)}</p>
             </li>)
           }))}
 

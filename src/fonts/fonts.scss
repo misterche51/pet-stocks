@@ -5,3 +5,11 @@
   url('Gingham.woff2') format('woff2');
   /* for the other supporting browsers */
   }
+
+@font-face {
+  font-family: 'Montserrat';
+  src: url('Montserrat.woff2') format('woff2-variations'),
+  /* will be the standard and works in Safari now */
+  url('Montserrat.woff2') format('woff2');
+  /* for the other supporting browsers */
+  }
