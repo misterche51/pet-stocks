@@ -8,12 +8,16 @@ class Tab extends Component {
     this.state = {
       contentLoaded: false,
       content: [],
+      rate: [],
     };
     this.loadData = this.loadData.bind(this);
+    this.loadRate = this.loadRate.bind(this);
   }
 
   componentDidMount() {
-    this.loadData()
+    this.loadData();
+    this.loadRate();
+
   }
 
   convertDate(string) {
@@ -52,6 +56,21 @@ class Tab extends Component {
       })
   }
 
+  loadRate() {
+    const url = 'https://fcsapi.com/api-v2/forex/latest?symbol=EUR/USD,USD/JPY,GBP/CHF&access_key=JoCqImY8mbipESNQxga0w24RMyUEQpCg9Y15a6DFzsIuK5LH';
+    const req = new Request(url);
+
+    fetch(req)
+      .then(res => res.json())
+      .then(data => {
+        console.log(data);
+        this.setState(()=> ({
+          rate: data.response,
+          contentLoaded: true,
+        }))
+      })
+  }
+
   render() {
     if (!this.state.contentLoaded) {
       return (
@@ -76,6 +95,23 @@ class Tab extends Component {
               </li>)
             }))}
           </ul>
+          }
+          {(this.props.theme === "currency") &&
+            <ul className="tabs__currency">
+              {console.log(this.state.rate)}
+              {(this.state.rate.map((item) => {
+                return (
+                  <li key={item.symbol} className="tabs__currency-item">
+                    <p className = "tabs__currency-symbol">{item.symbol}</p>
+                    <p className = "tabs__currency-price">{item.price}</p>
+                    {item.chg_per[0] === '+' ?
+                    <p className = "tabs__currency-change tabs__currency-change--growth">{item.chg_per}</p>
+                    :<p className = "tabs__currency-change tabs__currency-change--fall">{item.chg_per}</p>
+                  }
+                  </li>
+                )
+              }))}
+            </ul>
           }
         </div>
       </li>

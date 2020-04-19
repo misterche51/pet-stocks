@@ -19,9 +19,12 @@
     }
 
     &:not(:first-of-type) {
-      & * {
         color: #a7bfcc;
-      }
+        .tabs{
+          &__button {
+            color: #a7bfcc;
+          }
+        }
     }
 
     &:nth-of-type(2) {
@@ -105,6 +108,50 @@
     left:50%;
     top: 50%;
     transform: translate(-50%, -50%);
+  }
+
+  &__currency {
+    display: flex;
+    flex-flow: row wrap;
+    list-style: none;
+    margin-left: 0;
+    padding: 0;
+
+    &-item {
+      width: 50%;
+      height: 100px;
+      display:flex;
+      flex-flow: column nowrap;
+      justify-content: center;
+    }
+
+    &-symbol {
+      margin: 0;
+      font-size: 15px;
+      font-variation-settings: "wght" 550, "wdth" 125;
+      color: #9c9c9c;
+    }
+
+    &-price {
+      margin: 0;
+      font-size: 20px;
+      font-variation-settings: "wght" 800, "wdth" 125;
+      color: #ffffff;
+    }
+
+    &-change {
+      margin: 0;
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      font-variation-settings: "wght" 300, "wdth" 225;
+      &--growth {
+        color: greenyellow;
+      }
+
+      &--fall {
+        color: red;
+      }
+    }
   }
 
 }
