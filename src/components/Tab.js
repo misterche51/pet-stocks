@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Spinner from './Spinner';
+import TabButton from "./TabButton";
 
 class Tab extends Component {
   constructor (props) {
@@ -63,21 +64,18 @@ class Tab extends Component {
       <li className = "tabs__item">
         <span className = "tabs__header">
           <h2 className = "tabs__title">{this.props.title}</h2>
-          <a className = "tabs__link">more</a>
+          <TabButton theme = {this.props.theme}/>
         </span>
         <div className = "tabs__content">
           {(this.props.theme === "news") &&
           <ul className = "tabs__news">
-          {(this.state.content.map((item) => {
-            return (<li key = {item.url} className = "tabs__news-item">
-              <p className = "tabs__news-title">{item.title}</p>
-              <p className = "tabs__news-date">{this.convertDate(item.publishedAt)}</p>
-            </li>)
-          }))}
-
-
-            </ul>
-
+            {(this.state.content.splice(0, 6).map((item) => {
+              return (<li key = {item.url} className = "tabs__news-item">
+                <p className = "tabs__news-title">{item.title}</p>
+                <p className = "tabs__news-date">{this.convertDate(item.publishedAt)}</p>
+              </li>)
+            }))}
+          </ul>
           }
         </div>
       </li>
