@@ -2,6 +2,7 @@ import React from 'react';
 import Tab from './Tab';
 import TabHeader from "./TabHeader";
 import Spinner from './Spinner';
+import TabRefreshButton from "./TabRefreshButton";
 
 class TabCrypto extends Tab {
   constructor (props) {
@@ -24,7 +25,6 @@ class TabCrypto extends Tab {
     fetch(req)
       .then(res => res.json())
       .then(data => {
-        console.log(data);
         this.setState(()=> ({
           cryptoPrices: data,
           contentLoaded: true,
@@ -61,10 +61,8 @@ class TabCrypto extends Tab {
               }
               ))}
             </ul>
-            {/* <button className="tabs__currency-button">
-              <Icon className = "tabs__currency-button-icon" size={20} icon={loop2} />
-            </button> */}
           </div>
+          <TabRefreshButton/>
         </li>
       );
   }

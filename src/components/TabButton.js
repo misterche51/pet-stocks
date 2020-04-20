@@ -5,9 +5,10 @@ import {keyboard} from 'react-icons-kit/icomoon/keyboard';
 import {arrowUnsorted} from 'react-icons-kit/typicons/arrowUnsorted'
 
 const TabButton = (props) => {
+
   if (props.theme === 'news') {
     return (
-      <button className = "tabs__button">
+      <button onClick={props.onclick} className = "tabs__button">
         more
         <Icon className = "tabs__button-icon" size={20} icon={arrowMaximise} />
       </button>

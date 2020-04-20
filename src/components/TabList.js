@@ -8,8 +8,9 @@ class TabList extends Component {
     return (
       <ul className="main__tabs tabs">
         <TabNews title={'Last news'} theme={'news'}/>
-        <TabСurrency title={'Currencies course'} theme={'currency'}/>
-        <TabCrypto title={'Crypto course'} theme={'crypto'}/>
+        {/* <TabNews/> */}
+        {/* <TabСurrency title={'Currencies course'} theme={'currency'}/>
+        <TabCrypto title={'Crypto course'} theme={'crypto'}/> */}
       </ul>
     );
   }

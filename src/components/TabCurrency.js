@@ -2,8 +2,8 @@ import React from 'react';
 import Tab from './Tab';
 import TabHeader from "./TabHeader";
 import Spinner from './Spinner';
-import { Icon } from 'react-icons-kit';
-import {loop2} from 'react-icons-kit/icomoon/loop2';
+import TabRefreshButton from "./TabRefreshButton";
+
 
 
 class TabCurrency extends Tab {
@@ -13,6 +13,7 @@ class TabCurrency extends Tab {
       content: [],
     };
     this.loadRate = this.loadRate.bind(this);
+    this.refreshRate = this.refreshRate.bind(this);
   }
 
   componentDidMount() {
@@ -27,13 +28,17 @@ class TabCurrency extends Tab {
     fetch(req)
       .then(res => res.json())
       .then(data => {
-        console.log(data);
         this.setState(()=> ({
           rate: data,
           contentLoaded: true,
         }))
       })
   }
+
+  refreshRate() {
+    this.loadRate();
+  }
+
   render() {
     if (!this.state.contentLoaded) {
       return (
@@ -60,9 +65,7 @@ class TabCurrency extends Tab {
               )
             }))}
           </ul>
-          <button className="tabs__currency-button">
-            <Icon className = "tabs__currency-button-icon" size={20} icon={loop2} />
-          </button>
+          <TabRefreshButton/>
         </div>
       </li>
     );
