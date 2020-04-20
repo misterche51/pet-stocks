@@ -21,7 +21,7 @@ const TabButton = (props) => {
       </button>
     )
   }
-  if (props.theme === 'stocks')
+  if (props.theme === 'crypto')
   return (
     <button className = "tabs__button">
       sort

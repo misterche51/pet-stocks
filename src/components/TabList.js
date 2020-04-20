@@ -1,13 +1,15 @@
 import React, { Component } from 'react';
-import Tab from "./Tab";
+import TabNews from "./TabNews";
+import TabСurrency from "./TabCurrency";
+import TabCrypto from "./TabCrypto";
 
 class TabList extends Component {
   render() {
     return (
       <ul className="main__tabs tabs">
-        <Tab title={'Last news'} theme={'news'}/>
-        <Tab title={'Curerncies course'} theme={'currency'}/>
-        <Tab title={'Quotes changes'} theme={'stocks'}/>
+        <TabNews title={'Last news'} theme={'news'}/>
+        <TabСurrency title={'Currencies course'} theme={'currency'}/>
+        <TabCrypto title={'Crypto course'} theme={'crypto'}/>
       </ul>
     );
   }

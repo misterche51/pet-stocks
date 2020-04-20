@@ -123,6 +123,12 @@
       display:flex;
       flex-flow: column nowrap;
       justify-content: center;
+      padding-left: 10%;
+      // transition: background-color 0.2s ease-in-out;
+
+      // &:hover {
+      //   background-color: #86cdf3;
+      // }
     }
 
     &-symbol {
@@ -150,6 +156,22 @@
 
       &--fall {
         color: red;
+      }
+    }
+
+    &-button {
+      background-color: transparent;
+      border: none;
+      outline: none;
+      width: 30px;
+      height: 30px;
+      display: block;
+      margin-left: auto;
+
+      &-icon {
+        & svg {
+          fill: #a7bfcc;
+        }
       }
     }
   }
