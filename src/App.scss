@@ -4,6 +4,7 @@
 @import './styles/nav.scss';
 @import './styles/main.scss';
 @import './styles/modal.scss';
+@import './styles/converter.scss';
 @import './styles/tabs.scss';
 
 
@@ -33,4 +34,12 @@ img {
 a {
   text-decoration: none;
   cursor: pointer;
+}
+
+.visually-hidden {
+  position: absolute;
+  clip: rect(0 0 0 0);
+  width: 1px;
+  height: 1px;
+  margin: -1px;
 }

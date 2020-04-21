@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Converter from "./Converter";
 import { connect } from 'react-redux';
 import { closeModal } from '../actions/modalActions';
 import { Icon } from 'react-icons-kit';
@@ -26,6 +27,7 @@ class Modal extends Component {
       <>
         <div className = "overlay" onClick={this.props.closeModalHandler}></div>
         <div className = "modal">
+          <Converter/>
           <button type="button" className = "modal__close-button" onClick={this.props.closeModalHandler}>
             <Icon className = "modal__close-button-icon" size={40} icon={ic_clear} />
           </button>

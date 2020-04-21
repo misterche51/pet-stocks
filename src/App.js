@@ -14,7 +14,7 @@ class App extends Component {
       <>
         <Header/>
         <Main/>
-        {!this.props.isModalOpen && <Modal/>}
+        {this.props.isModalOpen && <Modal/>}
       </>
     );
   }

@@ -17,7 +17,7 @@ const TabButton = (props) => {
   }
   if (props.theme === 'currency') {
     return (
-      <button className = "tabs__button">
+      <button onClick={props.onclick} className = "tabs__button">
         convert
         <Icon className = "tabs__button-icon tabs__button-icon--light" size={20} icon={keyboard} />
       </button>

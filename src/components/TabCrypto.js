@@ -3,13 +3,11 @@ import Tab from './Tab';
 import TabHeader from "./TabHeader";
 import Spinner from './Spinner';
 import TabRefreshButton from "./TabRefreshButton";
-
 import { connect } from 'react-redux';
-
 import { cryptoFetchData } from '../actions/cryptoActions';
 class TabCrypto extends Tab {
   componentDidMount() {
-    // this.props.fetchData('https://fmpcloud.io/api/v3/quotes/crypto?apikey=5d203bc4e96ca9a944e8538054795ecc');
+    this.props.fetchData('https://fmpcloud.io/api/v3/quotes/crypto?apikey=5d203bc4e96ca9a944e8538054795ecc');
   }
 
   render() {
