@@ -1,6 +1,14 @@
 export const CRYPTO_HAS_ERRORED = 'CRYPTO_HAS_ERRORED';
-export const CRYPTO_IS_LOADING = 'RYPTO_IS_LOADING';
+export const CRYPTO_IS_LOADING = 'CRYPTO_IS_LOADING';
 export const CRYPTO_FETCH_DATA_SUCCESS = 'CRYPTO_FETCH_DATA_SUCCESS';
+export const CRYPTO_SORT_IS_OPEN = 'CRYPTO_SORT_IS_OPEN';
+
+
+export function cryptoSortIsOpen() {
+  return {
+    type: CRYPTO_SORT_IS_OPEN,
+  }
+};
 
 export function cryptoHasErrored() {
   return {
@@ -40,3 +48,4 @@ export function cryptoFetchData(url) {
           .catch(() => dispatch(cryptoHasErrored()));
   };
 }
+

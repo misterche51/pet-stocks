@@ -17,7 +17,7 @@ class TabCurrency extends Tab {
   }
 
   componentDidMount() {
-    this.loadRate();
+    // this.loadRate();
   }
 
   loadRate() {

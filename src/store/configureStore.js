@@ -1,11 +1,13 @@
 import { newsReducer } from '../reducers/news';
 import { cryptoReducer } from '../reducers/crypto';
+import { modalReducer } from '../reducers/modal';
 import { createStore, applyMiddleware, combineReducers} from 'redux';
 import thunk from 'redux-thunk';
 import { composeWithDevTools } from 'redux-devtools-extension';
 const reducers = {
   news: newsReducer,
-  crypto: cryptoReducer
+  crypto: cryptoReducer,
+  modal: modalReducer,
 };
 const reducer = combineReducers(reducers);
 

@@ -3,6 +3,9 @@ import Header from "./components/Header";
 import Main from "./components/Main";
 import './App.scss';
 
+import Modal from './components/Modal';
+import { connect } from 'react-redux';
+
 
 
 class App extends Component {
@@ -11,11 +14,18 @@ class App extends Component {
       <>
         <Header/>
         <Main/>
+        {!this.props.isModalOpen && <Modal/>}
       </>
     );
   }
 }
 
+const mapStateToProps = (state) => {
+  return {
+      isModalOpen: state.modal.isModalOpen
+  };
+};
 
 
-export default App;
+
+export default connect(mapStateToProps)(App);
