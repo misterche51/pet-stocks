@@ -1,13 +1,15 @@
 import {
   NEWS_HAS_ERRORED,
   NEWS_IS_LOADING,
-  NEWS_FETCH_DATA_SUCCESS
+  NEWS_FETCH_DATA_SUCCESS,
+  NEWS_IS_FOCUSED
 } from '../actions/newsActions'
 
 const initialState = {
   newsIsLoading: false,
   newsHasArrored: false,
   news: [],
+  newsIsFocused : false,
 };
 
 export function newsReducer(state = initialState, {type, payload}) {
@@ -29,6 +31,11 @@ export function newsReducer(state = initialState, {type, payload}) {
           newsIsLoading: false,
           newsHasArrored: false,
           news: payload,
+        }
+      case NEWS_IS_FOCUSED:
+        return {
+          ...state,
+          newsIsFocused: !state.newsIsFocused,
         }
         default:
           return state;

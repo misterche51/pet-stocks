@@ -1,6 +1,7 @@
 export const NEWS_HAS_ERRORED = 'NEWS_HAS_ERRORED';
 export const NEWS_IS_LOADING = 'NEWS_IS_LOADING';
 export const NEWS_FETCH_DATA_SUCCESS = 'NEWS_FETCH_DATA_SUCCESS';
+export const NEWS_IS_FOCUSED = 'NEWS_IS_FOCUSED';
 
 export function newsHasErrored() {
   return {
@@ -38,5 +39,11 @@ export function newsFetchData(url) {
           .then((response) => response.json())
           .then((payload) => dispatch(newsFetchDataSuccess(payload['articles'])))
           .catch(() => dispatch(newsHasErrored()));
+  };
+}
+
+export function newsIsFocused(bool) {
+  return {
+    type: NEWS_IS_FOCUSED,
   };
 }

@@ -7,6 +7,10 @@
   grid-template-columns: repeat(3, 1fr);
   padding: 0;
 
+  &--decompose {
+    grid-template-columns: 1fr;
+  }
+
   &__item {
     position: relative;
     max-height: 100%;
@@ -93,8 +97,14 @@
     padding: 0;
 
     &-title {
-      font-variation-settings: "wght" 350, "wdth" 75;
+      font-variation-settings: "wght" 450, "wdth" 125;
       margin-bottom: 0;
+    }
+
+    &-description {
+      margin-bottom: 0;
+      font-variation-settings: "wght" 300, "wdth" 75;
+      color: #0f121f;
     }
     &-date {
       font-size: 10px;

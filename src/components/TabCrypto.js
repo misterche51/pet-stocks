@@ -19,7 +19,7 @@ class TabCrypto extends Tab {
   }
 
   loadPrices() {
-    const url = 'https://fmpcloud.io/api/v3/quotes/crypto?apikey=5391e2dd11e5f1e4fac49bdfa07f154a';
+    const url = 'https://fmpcloud.io/api/v3/quotes/crypto?apikey=5d203bc4e96ca9a944e8538054795ecc';
     const req = new Request(url);
 
     fetch(req)
@@ -36,6 +36,7 @@ class TabCrypto extends Tab {
       if (!this.state.contentLoaded) {
         return (
           <li className = "tabs__item">
+            <TabHeader theme = {this.props.theme} title={this.props.title}/>
             <Spinner/>
           </li>
         )
