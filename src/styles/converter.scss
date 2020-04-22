@@ -82,4 +82,8 @@
     font-family: "Montserrat";
     font-variation-settings: "wght" 750, "wdth" 125;
   }
+
+  &__input:focus {
+    outline: 1px solid #7bb6d6;
+  }
 }
