@@ -1,0 +1,43 @@
+.button {
+  margin-left: auto;
+  position: relative;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  font-family: "Montserrat";
+  font-variation-settings: "wght" 750, "wdth" 125;
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  margin-top: 4px;
+  margin-right: -4px;
+}
+
+.buttonLight {
+  composes: button;
+  color: #a7bfcc;
+}
+
+.icon {
+  margin-left: 5px;
+}
+
+.icon svg {
+  fill: #000000;
+}
+
+.iconLight{
+  composes : icon;
+}
+
+.iconLight svg {
+  fill: #a7bfcc;
+}
+
+
+.button:hover svg,
+.button:focus svg {
+  transform: scale(1.1);
+}

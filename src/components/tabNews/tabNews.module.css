@@ -1,0 +1,5 @@
+.box {
+  composes : tab from "../tabDefault/tabDefault.module.css";
+  background-color: #e6eff4;
+  color: #000000;
+}

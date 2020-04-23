@@ -1,0 +1,25 @@
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  z-index: 10;
+  display: block;
+  background-color: #0d1933;
+  opacity: 0.6;
+}
+
+.window {
+  width: 800px;
+  height: 500px;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  background-color: #ffffff;
+  transform: translate(-50%,-50%);
+  z-index: 12;
+  border-radius: 8px;
+}
+

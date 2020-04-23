@@ -1,0 +1,11 @@
+.wrapper {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: flex-start;
+}
+
+.title {
+  margin: 0;
+  margin-right: 10px;
+  text-transform: uppercase;
+}

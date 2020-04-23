@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
-import Logo from "./Logo";
-import NavList from "./NavList";
+import Logo from "../logo/Logo";
+import NavList from "../navList/NavList";
+import styles from "./headerNav.module.css";
 
 
 class HeaderNav extends Component {
   render() {
     return (
-      <nav className="header__nav nav">
+      <nav className={styles.nav}>
         <Logo></Logo>
         <NavList></NavList>
       </nav>

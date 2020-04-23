@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import TabNews from "./TabNews";
-import TabСurrency from "./TabCurrency";
-import TabCrypto from "./TabCrypto";
+import TabNews from "./tabNews/TabNews";
+import TabСurrency from "./tabCurrency/TabCurrency";
+import TabCrypto from "./tabCrypto/TabCrypto";
 
 import { connect } from 'react-redux';
 

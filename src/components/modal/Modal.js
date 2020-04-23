@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
-import Converter from "./Converter";
+import Converter from '../converter/Converter';
+import CloseButton from '../closeButton/CloseButton';
 import { connect } from 'react-redux';
-import { closeModal } from '../actions/modalActions';
-import { Icon } from 'react-icons-kit';
-import {ic_clear} from 'react-icons-kit/md/ic_clear';
+import { closeModal } from '../../actions/modalActions';
+// import { Icon } from 'react-icons-kit';
+// import {ic_clear} from 'react-icons-kit/md/ic_clear';
+
+import styles from './modal.module.css';
 
 class Modal extends Component {
   constructor(props){
@@ -25,12 +28,10 @@ class Modal extends Component {
   render() {
     return (
       <>
-        <div className = "overlay" onClick={this.props.closeModalHandler}></div>
-        <div className = "modal">
+        <div className = {styles.overlay} onClick={this.props.closeModalHandler}></div>
+        <div className = {styles.window}>
           <Converter/>
-          <button type="button" className = "modal__close-button" onClick={this.props.closeModalHandler}>
-            <Icon className = "modal__close-button-icon" size={40} icon={ic_clear} />
-          </button>
+          <CloseButton onclick = {this.props.closeModalHandler}/>
         </div>
       </>
     );

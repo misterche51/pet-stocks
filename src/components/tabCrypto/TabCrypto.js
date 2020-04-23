@@ -1,10 +1,15 @@
 import React from 'react';
-import Tab from './Tab';
-import TabHeader from "./TabHeader";
-import Spinner from './Spinner';
-import TabRefreshButton from "./TabRefreshButton";
+import Tab from '../tabDefault/Tab';
+import TabHeader from "../tabHeader/TabHeader";
+import CourseChangeWidget from "../courseChangeWidget/CourseChangeWidget";
+import CoursePriceWidget from "../coursePriceWidget/CoursePriceWidget";
+import CourseSymbolWidget from "../courseSymbolWidget/CourseSymbolWidget";
+import Spinner from '../spinner/Spinner';
+import TabRefreshButton from "../refreshButton/TabRefreshButton";
 import { connect } from 'react-redux';
-import { cryptoFetchData } from '../actions/cryptoActions';
+import { cryptoFetchData } from '../../actions/cryptoActions';
+import styles from "./tabCrypto.module.css";
+
 class TabCrypto extends Tab {
   componentDidMount() {
     // this.props.fetchData('https://fmpcloud.io/api/v3/quotes/crypto?apikey=5d203bc4e96ca9a944e8538054795ecc');
@@ -13,14 +18,14 @@ class TabCrypto extends Tab {
   render() {
       if (this.props.cryptoIsLoading) {
         return (
-          <li className = "tabs__item">
+          <li className = {styles.box}>
             <TabHeader theme = {this.props.theme} title={this.props.title}/>
             <Spinner/>
           </li>
         )
       }
       return (
-        <li className = "tabs__item">
+        <li className = {styles.box}>
           <TabHeader theme = {this.props.theme} title={this.props.title}/>
           <div className = "tabs__content">
             <ul className="tabs__currency">
@@ -29,11 +34,11 @@ class TabCrypto extends Tab {
                 ).map((item) => {
                 return (
                   <li key={item.symbol} className="tabs__currency-item">
-                    <p className = "tabs__currency-symbol">{item.symbol}</p>
-                    <p className = "tabs__currency-price">{(item.price).toFixed(3)}</p>
+                    <CourseSymbolWidget symbol = {item.symbol}/>
+                    <CoursePriceWidget value = {(item.price).toFixed(3)}/>
                     {item.changesPercentage > 0 ?
-                    <p className = "tabs__currency-change tabs__currency-change--growth">+{item.changesPercentage}%</p>
-                    :<p className = "tabs__currency-change tabs__currency-change--fall">{item.changesPercentage}%</p>
+                     <CourseChangeWidget growth = {true} value={`+${item.changesPercentage}%`}/>
+                    :<CourseChangeWidget growth = {false} value={`${item.changesPercentage}%`}/>
                   }
                   </li>
                 )

@@ -1,0 +1,15 @@
+.change {
+  margin: 0;
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  font-variation-settings: "wght" 300, "wdth" 225;
+}
+.changeGrowth {
+  composes: change;
+  color: greenyellow;
+}
+
+.changeFall {
+  composes: change;
+  color: red;
+}

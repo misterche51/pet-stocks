@@ -1,0 +1,17 @@
+.closeButton {
+  position: absolute;
+  display: block;
+  top: 15px;
+  right: 20px;
+
+  width: 40px;
+  height: 40px;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.closeIcon svg {
+  fill: #0d1933;
+}

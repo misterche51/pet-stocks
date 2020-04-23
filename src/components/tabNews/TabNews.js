@@ -1,10 +1,10 @@
 import React from 'react';
-import Tab from './Tab';
-import TabHeader from "./TabHeader";
-import Spinner from './Spinner';
+import Tab from '../tabDefault/Tab';
+import TabHeader from "../tabHeader/TabHeader";
+import Spinner from '../spinner/Spinner';
 import { connect } from 'react-redux';
-
-import { newsFetchData, newsIsFocused } from '../actions/newsActions';
+import { newsFetchData, newsIsFocused } from '../../actions/newsActions';
+import styles from "./tabNews.module.css";
 
 
 class TabNews extends Tab {
@@ -48,14 +48,14 @@ class TabNews extends Tab {
 
     if (this.props.newsIsLoading) {
       return (
-        <li className = "tabs__item">
+        <li className = {styles.box}>
           <TabHeader theme = {this.props.theme} title={this.props.title}/>
           <Spinner/>
         </li>
       )
     }
     return (
-      <li className = "tabs__item">
+      <li className = {styles.box}>
         <TabHeader theme = {this.props.theme} title={this.props.title} onclick={this.props.focusButtonClickHandler} newsIsFocused={this.props.newsIsFocused} />
         <div className = "tabs__content">
           <ul className = "tabs__news">

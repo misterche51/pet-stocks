@@ -1,0 +1,99 @@
+.wrapper {
+  width: calc(100% - 80px);
+  height: calc(100% - 80px);
+  margin-top: 40px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.form {
+  width: 100%;
+  margin-top: 20px;
+  height: calc(100% - 100px);
+}
+
+.formInner {
+  display: flex;
+  flex-flow: row nowrap;
+  width: 100%;
+}
+
+.box {
+  width: 45%;
+}
+
+.boxInput {
+  composes: box;
+  order: -2;
+}
+
+.radioList {
+  display: flex;
+  flex-flow: row nowrap;
+}
+
+.radioInput {
+  position: absolute;
+  clip: rect(0 0 0 0);
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+}
+
+.radioInput:checked + .radioLabel {
+  background-color: #8bbdd89f;
+}
+
+
+.radioLabel{
+  padding: 10px 15px;
+  border: 1px solid #cdcdcd;
+  margin: 0;
+  cursor: pointer;
+}
+
+.radioLabel:hover {
+  background-color: #8bbdd83b;
+}
+
+.submit {
+  width: 10%;
+  order: -1;
+  position: relative;
+}
+
+.submitButton {
+  position: absolute;
+  background-color: transparent;
+  width: 100%;
+  height: 100%;
+  border: none;
+  outline: none;
+  z-index: 1;
+  cursor: pointer;
+}
+
+.submitIcon {
+  position: absolute;
+  top: 65%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index:0;
+}
+
+
+.input,
+.output {
+    margin-top: 24px;
+    width: 100%;
+    height: 137px;
+    border: 1px solid #cdcdcd;
+    padding: 30px 20px;
+    font-size: 44px;
+    font-family: "Montserrat";
+    font-variation-settings: "wght" 750, "wdth" 125;
+  }
+
+.input:focus {
+  outline: 1px solid #7bb6d6;
+}

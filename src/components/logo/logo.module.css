@@ -1,0 +1,18 @@
+.logo {
+  cursor:pointer;
+}
+
+.logoIcon {
+  color: #000000;
+  transition: color 0.2s ease-in;
+}
+
+.logo:hover .logoIcon {
+  color: #1b2ecc;
+}
+
+.logoTitle {
+  color: #000000;
+  margin-left: 20px;
+  text-transform: uppercase;
+}

@@ -11,86 +11,6 @@
     grid-template-columns: 1fr;
   }
 
-  &__item {
-    position: relative;
-    max-height: 100%;
-    overflow: hidden;
-    padding: 5% 10% 10%;
-    box-shadow: inset 0 10px 10px rgba(0,0,0,.12);
-
-
-
-    &:first-of-type {
-      background-color: #e6eff4;
-    }
-
-    &:not(:first-of-type) {
-        color: #a7bfcc;
-        .tabs{
-          &__button {
-            color: #a7bfcc;
-          }
-        }
-    }
-
-    &:nth-of-type(2) {
-      background-color: $background-fill-color-first;
-    }
-
-    &:nth-of-type(3) {
-      background-color: #14254a;
-    }
-  }
-
-  &__header {
-    display: flex;
-    flex-flow: row nowrap;
-    align-items: flex-start;
-  }
-
-  &__title {
-    margin: 0;
-    margin-right: 10px;
-    text-transform: uppercase;
-  }
-
-  &__button {
-    margin-left: auto;
-    position: relative;
-    background-color: transparent;
-    border: none;
-    outline: none;
-    font-family: "Montserrat";
-    font-variation-settings: "wght" 750, "wdth" 125;
-    cursor: pointer;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    align-items: center;
-    margin-top: 4px;
-
-    &-icon {
-      & svg {
-        margin-left: 5px;
-        fill: #000000;
-      }
-
-      &--light {
-        & svg {
-          fill: #a7bfcc;
-        }
-      }
-    }
-
-    &:hover,
-    &:focus {
-      & svg {
-        transform: scale(1.1);
-      }
-
-    }
-  }
-
   &__news {
     list-style: none;
     margin: 5px 0 0 ;
@@ -115,13 +35,6 @@
     }
   }
 
-  &__spinner {
-    position: absolute;
-    left:50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-  }
-
   &__currency {
     display: flex;
     flex-flow: row wrap;
@@ -136,57 +49,6 @@
       flex-flow: column nowrap;
       justify-content: center;
       padding-left: 10%;
-      // transition: background-color 0.2s ease-in-out;
-
-      // &:hover {
-      //   background-color: #86cdf3;
-      // }
-    }
-
-    &-symbol {
-      margin: 0;
-      font-size: 15px;
-      font-variation-settings: "wght" 550, "wdth" 125;
-      color: #9c9c9c;
-    }
-
-    &-price {
-      margin: 0;
-      font-size: 20px;
-      font-variation-settings: "wght" 800, "wdth" 125;
-      color: #ffffff;
-    }
-
-    &-change {
-      margin: 0;
-      font-size: 10px;
-      letter-spacing: 0.1em;
-      font-variation-settings: "wght" 300, "wdth" 225;
-      &--growth {
-        color: greenyellow;
-      }
-
-      &--fall {
-        color: red;
-      }
-    }
-
-    &-button {
-      background-color: transparent;
-      border: none;
-      outline: none;
-      width: 30px;
-      height: 30px;
-      display: block;
-      margin-left: auto;
-      cursor: pointer;
-
-      &-icon {
-        & svg {
-          fill: #a7bfcc;
-        }
-      }
     }
   }
-
 }
