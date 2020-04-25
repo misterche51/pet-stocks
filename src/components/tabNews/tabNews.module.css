@@ -1,9 +1,5 @@
 .box {
-  position: relative;
-  max-height: 100%;
-  overflow: hidden;
-  padding: 5% 10% 10%;
-  box-shadow: inset 0 10px 10px rgba(0,0,0,.12);
+  composes: box from '../tabDefault/tabDefault.module.css';
   background-color: #e6eff4;
   color: #000000;
 }

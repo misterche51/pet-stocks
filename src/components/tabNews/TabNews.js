@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import TabHeader from "../tabHeader/TabHeader";
-import Spinner from '../spinner/Spinner';
+import TabDefault from "../tabDefault/TabDefault";
 import { connect } from 'react-redux';
 import { newsFetchData, newsIsFocused } from '../../actions/newsActions';
 import styles from "./tabNews.module.css";
@@ -44,18 +43,8 @@ class TabNews extends Component {
 
   render() {
     const items = [].concat(this.props.news);
-
-    if (this.props.newsIsLoading) {
-      return (
-        <li className = {styles.box}>
-          <TabHeader theme = {this.props.theme} title={this.props.title}/>
-          <Spinner/>
-        </li>
-      )
-    }
     return (
-      <li className = {styles.box}>
-        <TabHeader theme = {this.props.theme} title={this.props.title} onclick={this.props.focusButtonClickHandler} newsIsFocused={this.props.newsIsFocused} />
+      <TabDefault style = {styles.box} dataIsLoading = {this.props.newsIsLoading} theme = {this.props.theme} title = {this.props.title} onclick = {this.props.focusButtonClickHandler} focused = {this.props.newsIsFocused}>
         <ul className = {styles.list}>
             {!this.props.newsIsFocused ? ((items.splice(0,5).map((item) => {
               return (<li key = {item.url} className = {styles.item}>
@@ -72,7 +61,7 @@ class TabNews extends Component {
             })))
             }
           </ul>
-      </li>
+      </TabDefault>
     );
   }
 }

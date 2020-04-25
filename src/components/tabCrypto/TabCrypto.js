@@ -1,11 +1,6 @@
 import React, { Component } from 'react';
-import TabHeader from "../tabHeader/TabHeader";
-// import CourseChangeWidget from "../courseChangeWidget/CourseChangeWidget";
-// import CoursePriceWidget from "../coursePriceWidget/CoursePriceWidget";
-// import CourseSymbolWidget from "../courseSymbolWidget/CourseSymbolWidget";
-
+import TabDefault from "../tabDefault/TabDefault";
 import QuotesWidget from '../quotesWidget/QuotesWidget';
-import Spinner from '../spinner/Spinner';
 import TabRefreshButton from "../refreshButton/TabRefreshButton";
 import { connect } from 'react-redux';
 import { cryptoFetchData } from '../../actions/cryptoActions';
@@ -19,17 +14,8 @@ class TabCrypto extends Component {
   }
 
   render() {
-      if (this.props.cryptoIsLoading) {
-        return (
-          <li className = {styles.box}>
-            <TabHeader theme = {this.props.theme} title={this.props.title}/>
-            <Spinner/>
-          </li>
-        )
-      }
       return (
-        <li className = {styles.box}>
-          <TabHeader theme = {this.props.theme} title = {this.props.title}/>
+        <TabDefault style = {styles.box} dataIsLoading = {this.props.cryptoIsLoading} theme = {this.props.theme} title = {this.props.title}>
           <ul className = {styles.list}>
               {(this.props.cryptoData.filter(
                 (item) => item.marketCap >= 1000000000
@@ -40,13 +26,13 @@ class TabCrypto extends Component {
                     symbol = {item.symbol}
                     value = {(item.price).toFixed(3)}
                     change = {item.changesPercentage}
-                    postfix ={'%'}/>
+                    postfix = {'%'}/>
                 )
               }
               ))}
             </ul>
           <TabRefreshButton/>
-        </li>
+        </TabDefault>
       );
   }
 }

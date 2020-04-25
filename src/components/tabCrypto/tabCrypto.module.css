@@ -1,13 +1,9 @@
 .box {
-  composes : box from "../tabNews/tabNews.module.css";
+  composes : box from '../tabDefault/tabDefault.module.css';
   background-color: #14254a;
   color: #a7bfcc;
 }
 
 .list {
-  display: flex;
-  flex-flow: row wrap;
-  list-style: none;
-  margin-left: 0;
-  padding: 0;
+  composes: list from "../tabDefault/tabDefault.module.css";
 }
