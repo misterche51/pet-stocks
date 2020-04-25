@@ -56,24 +56,22 @@ class TabNews extends Component {
     return (
       <li className = {styles.box}>
         <TabHeader theme = {this.props.theme} title={this.props.title} onclick={this.props.focusButtonClickHandler} newsIsFocused={this.props.newsIsFocused} />
-        <div className = "tabs__content">
-          <ul className = "tabs__news">
+        <ul className = {styles.list}>
             {!this.props.newsIsFocused ? ((items.splice(0,5).map((item) => {
-              return (<li key = {item.url} className = "tabs__news-item">
-                <p className = "tabs__news-title">{item.title}</p>
-                <p className = "tabs__news-date">{this.convertDate(item.publishedAt)}</p>
+              return (<li key = {item.url} className = {styles.item}>
+                <p className = {styles.title}>{item.title}</p>
+                <p className = {styles.date}>{this.convertDate(item.publishedAt)}</p>
               </li>)
             }))):
             ((this.props.news.map((item) => {
-              return (<li key = {item.url} className = "tabs__news-item">
-                <p className = "tabs__news-title">{item.title}</p>
-                <p className = "tabs__news-description">{item.description}</p>
-                <p className = "tabs__news-date">{this.convertDate(item.publishedAt)}</p>
+              return (<li key = {item.url} className = {styles.item}>
+                <p className = {styles.title}>{item.title}</p>
+                <p className = {styles.description}>{item.description}</p>
+                <p className = {styles.date}>{this.convertDate(item.publishedAt)}</p>
               </li>)
             })))
             }
           </ul>
-        </div>
       </li>
     );
   }

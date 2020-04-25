@@ -29,9 +29,8 @@ class TabCrypto extends Component {
       }
       return (
         <li className = {styles.box}>
-          <TabHeader theme = {this.props.theme} title={this.props.title}/>
-          <div className = "tabs__content">
-            <ul className="tabs__currency">
+          <TabHeader theme = {this.props.theme} title = {this.props.title}/>
+          <ul className = {styles.list}>
               {(this.props.cryptoData.filter(
                 (item) => item.marketCap >= 1000000000
                 ).map((item) => {
@@ -46,7 +45,6 @@ class TabCrypto extends Component {
               }
               ))}
             </ul>
-          </div>
           <TabRefreshButton/>
         </li>
       );

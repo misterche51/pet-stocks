@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import Header from "./components/header/Header";
-import Main from "./components/Main";
+import Main from "./components/main/Main";
 import './App.scss';
 
 import Modal from './components/modal/Modal';

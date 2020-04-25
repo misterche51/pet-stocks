@@ -31,21 +31,19 @@ class TabCurrency extends Component {
     return (
       <li className = {styles.box}>
         <TabHeader theme = {this.props.theme} title={this.props.title} onclick={this.props.openConvertModal}/>
-        <div className = "tabs__content">
-          <ul className="tabs__currency">
-            {(this.props.currencyData.filter((item) => (item.ticker).startsWith('USD')).map((item) => {
-              return (
-                <QuotesWidget
-                  key = {item.changes}
-                  symbol = {item.ticker}
-                  value = {item.bid}
-                  change = {item.changes}
-                  postfix = {''}/>
-              )
-            }))}
-          </ul>
-          <TabRefreshButton/>
-        </div>
+        <ul className = {styles.list}>
+          {(this.props.currencyData.filter((item) => (item.ticker).startsWith('USD')).map((item) => {
+            return (
+              <QuotesWidget
+                key = {item.changes}
+                symbol = {item.ticker}
+                value = {item.bid}
+                change = {item.changes}
+                postfix = {''}/>
+            )
+          }))}
+        </ul>
+        <TabRefreshButton/>
       </li>
     );
   }

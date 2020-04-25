@@ -7,3 +7,33 @@
   background-color: #e6eff4;
   color: #000000;
 }
+
+.list {
+  padding: 0;
+  list-style: none;
+}
+
+.item {
+  list-style: none;
+  margin: 5px 0 0 ;
+  padding: 0;
+}
+
+.title {
+  font-variation-settings: "wght" 450, "wdth" 125;
+  margin-bottom: 0;
+}
+
+.description {
+  margin-bottom: 0;
+  font-variation-settings: "wght" 300, "wdth" 75;
+  color: #0f121f;
+}
+
+.date {
+  font-size: 10px;
+  width: 100%;
+  color: #9c9c9c;
+  text-align: right;
+  font-variation-settings: "wght" 250, "wdth" 125;
+}

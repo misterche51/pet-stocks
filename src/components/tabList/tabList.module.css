@@ -1,0 +1,15 @@
+.box {
+  width: 100%;
+  max-height: calc(100vh - 20px);
+  min-height: 354px;
+  display: grid;
+  list-style: none;
+  grid-template-columns: repeat(3, 1fr);
+  padding: 0;
+  margin-top: 20px;
+}
+
+.boxDecomposed {
+  composes: box;
+  grid-template-columns: 1fr;
+}

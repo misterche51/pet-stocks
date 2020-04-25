@@ -3,3 +3,12 @@
   background-color: #0d1933;
   color: #a7bfcc;
 }
+
+.list {
+  composes: list from '../tabCrypto/tabCrypto.module.css';
+  display: flex;
+  flex-flow: row wrap;
+  list-style: none;
+  margin-left: 0;
+  padding: 0;
+}
