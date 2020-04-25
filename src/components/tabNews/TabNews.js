@@ -1,5 +1,4 @@
-import React from 'react';
-import Tab from '../tabDefault/Tab';
+import React, { Component } from 'react';
 import TabHeader from "../tabHeader/TabHeader";
 import Spinner from '../spinner/Spinner';
 import { connect } from 'react-redux';
@@ -7,7 +6,7 @@ import { newsFetchData, newsIsFocused } from '../../actions/newsActions';
 import styles from "./tabNews.module.css";
 
 
-class TabNews extends Tab {
+class TabNews extends Component {
   constructor(props){
     super(props);
     this.focusButtonClickHandler = this.focusButtonClickHandler.bind(this);

@@ -1,18 +1,21 @@
-import React from 'react';
-import Tab from '../tabDefault/Tab';
+import React, { Component } from 'react';
 import TabHeader from "../tabHeader/TabHeader";
-import CourseChangeWidget from "../courseChangeWidget/CourseChangeWidget";
-import CoursePriceWidget from "../coursePriceWidget/CoursePriceWidget";
-import CourseSymbolWidget from "../courseSymbolWidget/CourseSymbolWidget";
+// import CourseChangeWidget from "../courseChangeWidget/CourseChangeWidget";
+// import CoursePriceWidget from "../coursePriceWidget/CoursePriceWidget";
+// import CourseSymbolWidget from "../courseSymbolWidget/CourseSymbolWidget";
+
+import QuotesWidget from '../quotesWidget/QuotesWidget';
 import Spinner from '../spinner/Spinner';
 import TabRefreshButton from "../refreshButton/TabRefreshButton";
 import { connect } from 'react-redux';
 import { cryptoFetchData } from '../../actions/cryptoActions';
+
+
 import styles from "./tabCrypto.module.css";
 
-class TabCrypto extends Tab {
+class TabCrypto extends Component {
   componentDidMount() {
-    // this.props.fetchData('https://fmpcloud.io/api/v3/quotes/crypto?apikey=5d203bc4e96ca9a944e8538054795ecc');
+    this.props.fetchData('https://fmpcloud.io/api/v3/quotes/crypto?apikey=5d203bc4e96ca9a944e8538054795ecc');
   }
 
   render() {
@@ -33,14 +36,12 @@ class TabCrypto extends Tab {
                 (item) => item.marketCap >= 1000000000
                 ).map((item) => {
                 return (
-                  <li key={item.symbol} className="tabs__currency-item">
-                    <CourseSymbolWidget symbol = {item.symbol}/>
-                    <CoursePriceWidget value = {(item.price).toFixed(3)}/>
-                    {item.changesPercentage > 0 ?
-                     <CourseChangeWidget growth = {true} value={`+${item.changesPercentage}%`}/>
-                    :<CourseChangeWidget growth = {false} value={`${item.changesPercentage}%`}/>
-                  }
-                  </li>
+                  <QuotesWidget
+                    key = {item.symbol}
+                    symbol = {item.symbol}
+                    value = {(item.price).toFixed(3)}
+                    change = {item.changesPercentage}
+                    postfix ={'%'}/>
                 )
               }
               ))}

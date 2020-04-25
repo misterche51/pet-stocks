@@ -1,21 +1,22 @@
-import React from 'react';
-import Tab from '../tabDefault/Tab';
+import React, {Component} from 'react';
 import TabHeader from "../tabHeader/TabHeader";
 import Spinner from '../spinner/Spinner';
 import TabRefreshButton from "../refreshButton/TabRefreshButton";
-import CourseChangeWidget from "../courseChangeWidget/CourseChangeWidget";
-import CoursePriceWidget from "../coursePriceWidget/CoursePriceWidget";
-import CourseSymbolWidget from "../courseSymbolWidget/CourseSymbolWidget";
+// import CourseChangeWidget from "../courseChangeWidget/CourseChangeWidget";
+// import CoursePriceWidget from "../coursePriceWidget/CoursePriceWidget";
+// import CourseSymbolWidget from "../courseSymbolWidget/CourseSymbolWidget";
 import { openModal } from '../../actions/modalActions';
 import { connect } from 'react-redux';
 import { currencyFetchData } from '../../actions/currencyActions';
+
+import QuotesWidget from '../quotesWidget/QuotesWidget';
 import styles from "./tabCurrency.module.css";
 
 
 
-class TabCurrency extends Tab {
+class TabCurrency extends Component {
   componentDidMount() {
-    // this.props.fetchData('https://fmpcloud.io/api/v3/fx?apikey=5d203bc4e96ca9a944e8538054795ecc');
+    this.props.fetchData('https://fmpcloud.io/api/v3/fx?apikey=5d203bc4e96ca9a944e8538054795ecc');
   }
 
   render() {
@@ -34,14 +35,12 @@ class TabCurrency extends Tab {
           <ul className="tabs__currency">
             {(this.props.currencyData.filter((item) => (item.ticker).startsWith('USD')).map((item) => {
               return (
-                <li key={item.changes} className="tabs__currency-item">
-                  <CourseSymbolWidget symbol = {item.ticker}/>
-                  <CoursePriceWidget value = {item.bid}/>
-                  {item.changes > 0?
-                    <CourseChangeWidget growth = {true} value={+(item.changes).toFixed(3)}/>
-                    : <CourseChangeWidget growth = {false} value={item.changes.toFixed(3)}/>
-                }
-                </li>
+                <QuotesWidget
+                  key = {item.changes}
+                  symbol = {item.ticker}
+                  value = {item.bid}
+                  change = {item.changes}
+                  postfix = {''}/>
               )
             }))}
           </ul>
